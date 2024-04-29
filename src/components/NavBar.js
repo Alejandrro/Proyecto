@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 function ColorSchemesExample() {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar className="barra" bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">ProgramarKeting</Navbar.Brand>
+          <Navbar.Brand><Link to="/">ProgramarKeting</Link></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link>
               <Link to="/">Inicio</Link>
@@ -18,6 +18,9 @@ function ColorSchemesExample() {
             </Nav.Link>
             <Nav.Link>
               <Link to="/clientes">Clientes</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/contactos">Contactos</Link>
             </Nav.Link>
           </Nav>
         </Container>
