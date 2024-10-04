@@ -11,6 +11,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 1",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 2",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 3",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 4",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 5",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 6",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 7,
@@ -53,6 +59,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 7",
       precio: 100,
+      //cantidad: 1,
     },
     {
       id: 8,
@@ -60,6 +67,7 @@ function Ventas() {
       url: "imagenes/ejemplo.png",
       descripcion: "Descripción del producto 8",
       precio: 100,
+      //cantidad: 1,
     },
     // Agrega más productos aquí
   ]);
@@ -67,24 +75,35 @@ function Ventas() {
   const [carrito, setCarrito] = useState([]);
 
   const agregarProducto = (producto) => {
+    console.log("Valor inicial del carro:::", JSON.stringify(carrito));
 
-    console.log("Producto a Buscar:::",JSON.stringify(producto))
+    console.log("Producto a Agregar::", JSON.stringify(producto));
 
-    const existe = carrito.find((item) => item.id === producto.id);
+    const existe = carrito.filter((map) => map.id === producto.id);
 
-    console.log("Producto Existente:::",JSON.stringify(existe))
+    console.log("Valor", existe);
 
-    if (existe) {
+    if (existe.length > 0) {
+      console.log("Ya existe el producto", JSON.stringify(producto));
+
+      //setCarrito([...carrito, producto]);
       setCarrito(
-        carrito.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: item.cantidad + 1 }
-            : item
-        )
+        carrito.map((item) => {
+          console.log("item::", item);
+          console.log("producto id", producto.id);
+
+          if (item.id === producto.id) {
+            return { ...item, cantidad: item.cantidad + 1 };
+          } else {
+            return item;
+          }
+        })
       );
     } else {
-      setCarrito([...carrito, { producto, cantidad: 1 }]);
+      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
     }
+
+    console.log("Contenido del carrito:::", JSON.stringify(carrito));
   };
 
   const eliminarDelCarrito = (id) => {

@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 const Carrito = ({ carrito, eliminarDelCarrito }) => {
-  console.log(JSON.stringify(carrito));
   const total = carrito.reduce(
     (sum, item) => sum + item.precio * item.cantidad,
     0
