@@ -11,13 +11,10 @@ function ColorSchemesExample() {
           <Navbar.Brand><Link to="/">ProgramarKeting</Link></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to="/">Inicio</Link>
+              <Link to="/persianas">Persianas</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/ventas">Ventas</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/clientes">Clientes</Link>
+              <Link to="/alfombras">Alfrombras</Link>
             </Nav.Link>
             <Nav.Link>
               <Link to="/contactos">Contactos</Link>

@@ -12,8 +12,8 @@ function App() {
       <ColorSchemesExample />
       <Routes>
         <Route path="/" exact={true} Component={Home} />
-        <Route path="/ventas" exact={true} Component={Ventas} />
-        <Route path="/clientes" exact={true} Component={Clientes} />
+        <Route path="/persianas" exact={true} Component={Ventas} />
+        <Route path="/alfombras" exact={true} Component={Clientes} />
         <Route path="/contactos" exact={true} Component={Contactos} />
       </Routes>
     </Router>
